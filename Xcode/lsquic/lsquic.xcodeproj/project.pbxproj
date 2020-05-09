@@ -101,6 +101,8 @@
 		BC11C9A9246559EB002908DA /* lsquic_qenc_hdl.c in Sources */ = {isa = PBXBuildFile; fileRef = BC11C930246559EB002908DA /* lsquic_qenc_hdl.c */; };
 		BC11C9AA246559EB002908DA /* lsquic_rtt.c in Sources */ = {isa = PBXBuildFile; fileRef = BC11C933246559EB002908DA /* lsquic_rtt.c */; };
 		BC11C9AB246559EB002908DA /* lsquic_packet_in.c in Sources */ = {isa = PBXBuildFile; fileRef = BC11C939246559EB002908DA /* lsquic_packet_in.c */; };
+		BC11CABB24664C7F002908DA /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC11CAB924664C7F002908DA /* libcrypto.a */; };
+		BC11CABC24664C7F002908DA /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC11CABA24664C7F002908DA /* libssl.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -393,6 +395,8 @@
 		BC11C93D246559EB002908DA /* lsquic_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsquic_util.h; sourceTree = "<group>"; };
 		BC11C93E246559EB002908DA /* lsquic_send_ctl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsquic_send_ctl.h; sourceTree = "<group>"; };
 		BC11CAAA24655DFA002908DA /* lsquic-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "lsquic-Prefix.pch"; sourceTree = "<group>"; };
+		BC11CAB924664C7F002908DA /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../boringssl/lib/libcrypto.a; sourceTree = "<group>"; };
+		BC11CABA24664C7F002908DA /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../boringssl/lib/libssl.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +404,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC11CABB24664C7F002908DA /* libcrypto.a in Frameworks */,
+				BC11CABC24664C7F002908DA /* libssl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1006,6 +1012,8 @@
 		BC11CAB024657193002908DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC11CAB924664C7F002908DA /* libcrypto.a */,
+				BC11CABA24664C7F002908DA /* libssl.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1284,9 +1292,10 @@
 				GCC_PREFIX_HEADER = "lsquic/lsquic-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../include\"",
-					"\"$(SRCROOT)/../../../boringssl/include\"",
+					"\"$(SRCROOT)/../boringssl/include\"",
 					"\"$(SRCROOT)/../../src/liblsquic/ls-qpack/deps/xxhash\"",
 				);
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../boringssl/lib\"";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1301,9 +1310,10 @@
 				GCC_PREFIX_HEADER = "lsquic/lsquic-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../include\"",
-					"\"$(SRCROOT)/../../../boringssl/include\"",
+					"\"$(SRCROOT)/../boringssl/include\"",
 					"\"$(SRCROOT)/../../src/liblsquic/ls-qpack/deps/xxhash\"",
 				);
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../boringssl/lib\"";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
