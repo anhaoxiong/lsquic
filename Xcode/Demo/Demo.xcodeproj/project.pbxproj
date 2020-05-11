@@ -98,6 +98,11 @@
 		BC11CAA324655A42002908DA /* prog.c in Sources */ = {isa = PBXBuildFile; fileRef = BC11CA4E24655A42002908DA /* prog.c */; };
 		BC11CAA424655A42002908DA /* md5_client.c in Sources */ = {isa = PBXBuildFile; fileRef = BC11CA4F24655A42002908DA /* md5_client.c */; };
 		BC11CAA524655A42002908DA /* echo_server.c in Sources */ = {isa = PBXBuildFile; fileRef = BC11CA5124655A42002908DA /* echo_server.c */; };
+		BC11CAF724693659002908DA /* liblsquic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC11C806246559A9002908DA /* liblsquic.a */; };
+		BC11CAFC24693668002908DA /* libevent_extra.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC11CAF824693668002908DA /* libevent_extra.a */; };
+		BC11CAFD24693668002908DA /* libevent_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC11CAF924693668002908DA /* libevent_core.a */; };
+		BC11CAFE24693668002908DA /* libevent_pthreads.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC11CAFA24693668002908DA /* libevent_pthreads.a */; };
+		BC11CAFF24693668002908DA /* libevent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC11CAFB24693668002908DA /* libevent.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +111,13 @@
 			containerPortal = BC11C801246559A9002908DA /* lsquic.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BC11C7BB24655904002908DA;
+			remoteInfo = lsquic;
+		};
+		BC11CAF424693655002908DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC11C801246559A9002908DA /* lsquic.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BC11C7BA24655904002908DA;
 			remoteInfo = lsquic;
 		};
 /* End PBXContainerItemProxy section */
@@ -214,6 +226,10 @@
 		BC11CAA724655A84002908DA /* lsquic_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsquic_types.h; sourceTree = "<group>"; };
 		BC11CAA824655A84002908DA /* lsquic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsquic.h; sourceTree = "<group>"; };
 		BC11CAA924655A84002908DA /* lsxpack_header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsxpack_header.h; sourceTree = "<group>"; };
+		BC11CAF824693668002908DA /* libevent_extra.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libevent_extra.a; path = ../libevent/lib/libevent_extra.a; sourceTree = "<group>"; };
+		BC11CAF924693668002908DA /* libevent_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libevent_core.a; path = ../libevent/lib/libevent_core.a; sourceTree = "<group>"; };
+		BC11CAFA24693668002908DA /* libevent_pthreads.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libevent_pthreads.a; path = ../libevent/lib/libevent_pthreads.a; sourceTree = "<group>"; };
+		BC11CAFB24693668002908DA /* libevent.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libevent.a; path = ../libevent/lib/libevent.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +237,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC11CAFC24693668002908DA /* libevent_extra.a in Frameworks */,
+				BC11CAFD24693668002908DA /* libevent_core.a in Frameworks */,
+				BC11CAFE24693668002908DA /* libevent_pthreads.a in Frameworks */,
+				BC11CAFF24693668002908DA /* libevent.a in Frameworks */,
+				BC11CAF724693659002908DA /* liblsquic.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +254,7 @@
 				BC11C801246559A9002908DA /* lsquic.xcodeproj */,
 				BC11C7E724655943002908DA /* Demo */,
 				BC11C7E624655943002908DA /* Products */,
+				BC11CAF624693659002908DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -994,6 +1016,17 @@
 			path = ../include;
 			sourceTree = "<group>";
 		};
+		BC11CAF624693659002908DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC11CAF924693668002908DA /* libevent_core.a */,
+				BC11CAF824693668002908DA /* libevent_extra.a */,
+				BC11CAFA24693668002908DA /* libevent_pthreads.a */,
+				BC11CAFB24693668002908DA /* libevent.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1008,6 +1041,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BC11CAF524693655002908DA /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -1173,6 +1207,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BC11CAF524693655002908DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = lsquic;
+			targetProxy = BC11CAF424693655002908DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		BC11C7F124655943002908DA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1309,6 +1351,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZP3LPA9D5W;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../libevent/include\"";
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1318,6 +1361,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../../boringssl/iosbuild/lib/ssl\"",
 					"\"$(SRCROOT)/../../../boringssl/iosbuild/lib/crypto\"",
+					"\"$(SRCROOT)/../libevent/lib\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.innotechx.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1331,6 +1375,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZP3LPA9D5W;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../libevent/include\"";
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1340,6 +1385,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../../boringssl/iosbuild/lib/ssl\"",
 					"\"$(SRCROOT)/../../../boringssl/iosbuild/lib/crypto\"",
+					"\"$(SRCROOT)/../libevent/lib\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.innotechx.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
